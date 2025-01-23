@@ -1,30 +1,30 @@
 import Link from "next/link";
 import {
-  RegisterLink,
   LoginLink,
   LogoutLink
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Header = async () => {
-  const user = await getKindeServerSession();
+  const { getUser } = getKindeServerSession();
+  const user = await getUser(); // Ensure you call getUser() correctly
+
   return (
     <header className="bg-gray-200">
       <div className="flex justify-between items-center px-10 py-4">
-        <div>NextBlog</div>
+        <div>
+          <h2 className="text-xl font-medium">NextBlog</h2>
+        </div>
         <ul className="flex space-x-3 justify-center">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/blogs">Blogs</Link>
-          <Link href="/profile">Profile</Link>
-          {user ? (
-            <>
-              <LogoutLink>Logout</LogoutLink>
-            </>
+          <Link className="hover:text-orange-500 transition" href="/">Home</Link>
+          <Link className="hover:text-orange-500 transition" href="/profile">Profile</Link>
+        </ul>
+        <ul>
+        {user ? (
+            <LogoutLink className=" transition px-3 py-1.5 text-white bg-orange-500 hover:bg-orange-600 rounded-md border">Logout</LogoutLink>
           ) : (
             <>
-              <LoginLink>Login</LoginLink>
-              <RegisterLink>Signup</RegisterLink>
+              <LoginLink  className=" transition px-3 py-1.5 text-white bg-orange-500 hover:bg-orange-600 rounded-md border">Login</LoginLink>
             </>
           )}
         </ul>
