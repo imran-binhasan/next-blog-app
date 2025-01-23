@@ -17,7 +17,13 @@ const Header = async () => {
         </div>
         <ul className="flex space-x-3 justify-center">
           <Link className="hover:text-orange-500 transition" href="/">Home</Link>
+          {user?
+          <>
           <Link className="hover:text-orange-500 transition" href="/profile">Profile</Link>
+          </>:
+          <>
+          <LoginLink className="hover:text-orange-500 transition" href="/profile">Profile</LoginLink>
+          </>}
         </ul>
         <ul>
         {user ? (
