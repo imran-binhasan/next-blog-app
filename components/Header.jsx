@@ -22,7 +22,7 @@ const Header = async () => {
           <Link className="hover:text-orange-500 transition" href="/profile">Profile</Link>
           </>:
           <>
-          <LoginLink className="hover:text-orange-500 transition" href="/profile">Profile</LoginLink>
+          <LoginLink className="hover:text-orange-500 transition">Profile</LoginLink>
           </>}
         </ul>
         <ul>
