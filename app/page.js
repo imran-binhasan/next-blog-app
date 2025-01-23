@@ -18,10 +18,10 @@ export default async function Home() {
         <Link 
         key={post.id}
         href={`/blog/${post.id}`}
-        className="border p-4 rounded hover:bg-gray-200 transition"
+        className="border shadow-md p-4 rounded hover:bg-gray-200 transition"
         >
           <h4 className="font-medium">{post.title}</h4>
-          {/* <p className="text-gray-600">{post.body}</p> */}
+          <p className="text-gray-600">{post.body}</p>
         </Link>
       ))}
     </div>
